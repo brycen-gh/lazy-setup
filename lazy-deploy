@@ -1,0 +1,28 @@
+#!/bin/bash
+# This script is used to deploy the lazy-deploy project
+
+# Checks if the script is being run as root
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root" 
+  exit 1
+fi
+
+# Checks if online
+online=$(ping -c 1 google.com | grep 'bytes from' | wc -l)
+
+# Checks for required directories if offline
+if [ $online -eq 0 ]; then
+  if [ ! -d "rpm" ]; then
+    echo "The local rpm directory does not exist and your offline, this script can't continue"
+    echo "exiting..."
+    exit 1
+  fi
+fi
+
+# Checks if the rpm directory exists
+if [ ! -d "rpm" ]; then
+  read -p "The local rpm directory does not exist, but you're online, would you like to contine with an online install? (y/n): " answer
+  echo "The local rpm directory does not exist, creating it now..."
+  mkdir rpm
+
+fi

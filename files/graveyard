@@ -1,0 +1,42 @@
+"""
+        print(program_list["role"][role]["files"])
+        print(program_list["role"][role]["rpms"])
+        print(program_list["role"][role]["software"])
+
+
+    common_files = program_list["role"]["common"]["files"]
+    common_rpms = program_list["role"]["common"]["rpms"]
+    common_software = program_list["role"]["common"]["software"]
+
+    if selected_role == "analyst":
+        try:
+            file_list = common_files + program_list["role"]["analyst"]["files"]
+            rpm_list = common_rpms + program_list["role"]["analyst"]["rpms"]
+            software_list = common_software + program_list["role"]["analyst"]["software"]
+        except:
+            print("No analyst specific programs")
+    elif selected_role == "manager":
+        file_list = common_files + program_list["role"]["manager"]["files"]
+        rpm_list = common_rpms + program_list["role"]["manager"]["rpms"]
+        software_list = common_software + program_list["role"]["manager"]["software"]
+
+    if selected_role == "analyst":
+        print(software_list)
+
+
+#print(object_vars["files_list"])
+#print(object_vars["rpms_list"])
+#print(object_vars["software_list"])
+
+
+# Doesn't work:
+# - clonezilla
+# - software-properties-common
+# - virtualbox
+# - virt-inst
+# - vagrant
+# - isc-kea
+# - libguestfs-tools
+
+
+"""
