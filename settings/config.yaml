@@ -1,0 +1,9 @@
+# Supported tools list
+assets:
+  os:
+    rhel:
+    - Analysts
+    - Managers
+    windows:
+    - Analysts
+

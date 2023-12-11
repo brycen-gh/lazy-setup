@@ -1,5 +1,7 @@
 # Directories and files to ignore when committing to git
 /settings/*deployment.yaml
+ms_deployment.yaml
+rhel_deployment.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
